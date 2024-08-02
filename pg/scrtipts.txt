@@ -1,0 +1,8 @@
+create schema usr
+
+CREATE TABLE usr.user (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    status BOOLEAN DEFAULT FALSE
+);

@@ -7,9 +7,9 @@ export class UserMiddleware implements NestMiddleware {
   constructor(private readonly usersService: UsersService) {}
 
   async use(req: Request, res: Response, next: NextFunction) {
-    const { email, password } = req.body;
-    if (!email || !password) {
-      throw new BadRequestException('Name and email are required');
+    const { name, email, password } = req.body;
+    if (!email || !password || !name) {
+      throw new BadRequestException('Name, email and password are required');
     }
 
     const user = await this.usersService.findByEmail(email);
